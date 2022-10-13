@@ -10,14 +10,23 @@ import java.util.List;
 @ResponseBody
 @RequestMapping("/api/v0.1/fizzbuzz")
 public class FizzBuzzController {
-    //PostHandler
+
+    private final FizzBuzzService fizzBuzzService;
+    private final FizzBuzzRepository fizzBuzzRepository;
+
+    public FizzBuzzController(FizzBuzzService fizzBuzzService, FizzBuzzRepository fizzBuzzRepository){
+        this.fizzBuzzService=fizzBuzzService;
+        this.fizzBuzzRepository=fizzBuzzRepository;
+    }
+
     @PostMapping(
             value = "/postbody",
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<String>> postBody(@RequestBody FizzBuzz fizzBuzz) {
-        //Instantiate FizzBuzzService
-        FizzBuzzService fizzBuzzService = new FizzBuzzService();
+        fizzBuzzRepository.save(fizzBuzz);
+
+
         return ResponseEntity.ok(fizzBuzzService.fizzBuzzService(fizzBuzz));
     }
 }

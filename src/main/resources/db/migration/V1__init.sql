@@ -1,6 +1,6 @@
 create table IF NOT EXISTS topfizz
 (
-	id bigserial constraint topfizz_pk primary key,
+	id bigserial  primary key,
 	int1 int not null,
 	int2 int not null,
 	str1 text not null,
@@ -16,4 +16,4 @@ values(5,7,'Le Bon','Coin'),
        (5,7,'Le Bon','Coin'),
        (9,4,'Le Bon','Coin'),
        (2,1,'Ca','Nard'),
-	   (8,9,'Ca','Mion');
+	(8,9,'Ca','Mion');
