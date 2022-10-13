@@ -19,14 +19,27 @@ public class FizzBuzzController {
         this.fizzBuzzRepository=fizzBuzzRepository;
     }
 
+    //POST int1,int2,intLimit,str1,str2 request
     @PostMapping(
             value = "/postbody",
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<String>> postBody(@RequestBody FizzBuzz fizzBuzz) {
+        //Persistence for API's input
         fizzBuzzRepository.save(fizzBuzz);
-
-
         return ResponseEntity.ok(fizzBuzzService.fizzBuzzService(fizzBuzz));
     }
+    //GET all previous submitted request
+    @GetMapping(value = "/getemall")
+    List<FizzBuzz> all() {
+
+        return fizzBuzzRepository.findAll();
+    }
+
+    @GetMapping(value = "/tops")
+    List<FizzBuzz> tops() {
+
+        return fizzBuzzRepository.findTopQueries();
+    }
+
 }
