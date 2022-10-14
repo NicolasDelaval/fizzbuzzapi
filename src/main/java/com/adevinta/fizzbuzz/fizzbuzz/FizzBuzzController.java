@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @ResponseBody
-@RequestMapping("/api/v0.1/fizzbuzz")
+@RequestMapping("/api/v1/fizzbuzz")
 public class FizzBuzzController {
 
     private final FizzBuzzService fizzBuzzService;
@@ -21,7 +21,7 @@ public class FizzBuzzController {
 
     //POST int1,int2,intLimit,str1,str2 request
     @PostMapping(
-            value = "/postbody",
+            value = "/postfizz",
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<String>> postBody(@RequestBody FizzBuzz fizzBuzz) {
@@ -30,16 +30,15 @@ public class FizzBuzzController {
         return ResponseEntity.ok(fizzBuzzService.fizzBuzzService(fizzBuzz));
     }
     //GET all previous submitted request
-    @GetMapping(value = "/getemall")
+    @GetMapping(value = "/getallfizz")
     List<FizzBuzz> all() {
 
         return fizzBuzzRepository.findAll();
     }
 
+    //WIP GET the X tops submitted request
     @GetMapping(value = "/tops")
     List<FizzBuzz> tops() {
-
         return fizzBuzzRepository.findTopQueries();
     }
-
 }
