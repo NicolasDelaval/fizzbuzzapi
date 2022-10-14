@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:    
+  postgres:
+    image: postgres:12.9
+    restart: always
+    environment:
+      - TZ=Europe/Paris
+      - PGTZ=Europe/Paris
+      - POSTGRES_USER=fizz
+      - POSTGRES_PASSWORD=buzz
+      - POSTGRES_DB=fizzbuzz
+    ports:
+      - '127.0.0.1:5438:5432'

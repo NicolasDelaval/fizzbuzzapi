@@ -20,7 +20,7 @@ WSL VM with a Linux distribution set or a "native" Linux machine
 
 - Open the project within your IDE and run it : you're now all set
 
-- Launch your API plaftorm and generate a POST request to the following url : http://localhost:8080/api/v0.1/fizzbuzz/postbody
+- Launch your API plaftorm and generate a POST request to the following url : http://localhost:8080/api/v1/fizzbuzz/postfizz
   with the following body format :
 
   {
@@ -32,10 +32,10 @@ WSL VM with a Linux distribution set or a "native" Linux machine
    }
 
    You will receive the expected behaviour from a "fizzbuzz" algorythm within the response pane
-- If you wish to get all previous post requests persisted in db, please send a GET request to the following URL : http://localhost:8080/api/v0.1/fizzbuzz/getemall
+- If you wish to get all previous post requests persisted in db, please send a GET request to the following URL : http://localhost:8080/api/v0.1/fizzbuzz//getallfizz
 
 
-3. Known issues (v0.1) :
+3. Known issues (v1.0) :
    The following request works fine executed in pgs console
 
     SELECT int1 as Param1, int2 as Param2, str1 as Param3, str2 as Param4,
